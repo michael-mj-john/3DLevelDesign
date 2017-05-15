@@ -1,0 +1,145 @@
+﻿- 3D Adventure Game Kit Documentation -
+
+
+Thanks again for purchasing the 3D Adventure Game Kit this document will give the user
+a quick overview of the different assets and scripts which are available within the project.
+
+
+How to:
+
+
+        Modular Character:
+
+
+        -Setup
+        
+                The fastest way to setup a character is using a prefab provided in the Modular Character folder.
+                To build a character from scratch you will need to attach the following components.
+
+
+                Rigidbody,
+                Collider (Capsule Preferred),
+                CharacterMotor
+
+
+                This is now prepared to be controlled through logic, this product provides you with an InputManager and several input methods for moving
+                the character. Feel free to use these or control the character using your own scripts. The motor is designed to allow anything to control the
+                character whether it be Enemy AI, a Navigation Mesh or User Input.
+
+
+                You are able to switch the character to a new model by just replacing the model in the prefabs hierarchy and replacing
+                the Humanoid Avatar in the animator located on the root of the character.
+
+
+        Assets:
+
+
+        -Information
+                
+                This pack comes with a handful of assets to be used in your game, whether it be commercial or prototyping.
+
+
+Scripts:
+
+
+        Modular Character:
+
+
+        -AbstractBehaviour.cs
+
+
+                This is an extension of the built in MonoBehaviour, it stores the main components into easily accessed variables throughout the modular character.
+                Referencing the Rigidbody, CharacterMotor, Camera, Animator, AudioSource, Input and Material these variables then can be accessed through any script
+                on the player extended by AbstractBehaviour.
+
+
+        -CharacterMotor.cs
+
+
+                This class handles the main logic behind the rigidbody controller. This will control the movement, rotation, collisions and physics interactions
+                with the character. Mostly everything excluding Input.
+                While the class contains many vital variables for tweaking the movement of the character the main values that are interacted with are the:
+                movement.movementDirection,
+                rotation.rotationDirection.
+                Both are used to input the transform data to the character.
+
+
+        -Jump.cs / MultiJump.cs / AdvancedJump.cs
+
+
+                These classes extend upon each other to handle the input and conditions for jumping with the character.
+                Jump is a barebones jump functionality which will only lift the character into the air.
+                Multijump extends Jump by allowing the user to specify the number of jumps the character can perform.
+                AdvancedJump extends Multijump taking the functionality of multiple jumps and adding the logic for slide jumps and wall jumps and adding animation.
+
+
+        -Movement.cs / AdvancedMovement.cs
+
+
+                These two classes are used to handle moving the character around.
+                Movement is a bare bones using the camera's location to move based on the input.
+                AdvancedMovement extends Movement adds animations and additional camera movement based on input type.
+        
+        -Health.cs / PlayerHealth.cs / EnemyHealth.cs
+        
+                The health script is used for characters to take damage and receive knockback velocity,
+                The PlayerHealth and EnemyHealth extend Health overriding a few methods to create unique interactions between entities such as players respawning and Enemies getting destroyed. PlayerHealth also handles the health UI.
+
+
+        -InputManager.cs / InputManagerUI.cs
+
+
+                InputManager is used to specify multiple sets of possible controls and define which is currently being used this allows for changes based on input style, such as the camera behaving differently depending on keyboard or
+                Gamepad input.
+                InputManagerUI extends InputManager and is only used to show the currently used Input on screen.
+
+
+        -EnemyAI.cs
+
+
+                EnemyAI is an example script for AI controlled enemies using the character motor, this script is not exactly modular and shows a possible way of using the character controller outside of the main playable character.
+                This script handles multiple enemy states, attacking player and damaging the enemy.
+
+
+        -CameraControl.cs
+
+
+                Camera Control is a fully featured camera control system to be used by side of the character motor. The camera collision detection was modified using a tutorial from http://renaissancecoders.com/ Unity3D Character Controller.
+                The camera is controlled different based on the settings of the InputManager.
+                
+        -MobileInput.cs
+
+
+                Mobile Input is used to add a mobile option to the InputManager. This creates a new entry which allows the character to be controlled using an onscreen Joystick and Button.
+
+
+        -Additional Scripts
+                AdditionalAnimationSupport.cs is used to add more movement to the character places his hands against walls he collides.
+                FootstepHandler.cs handles the footstep sound when the character moves this is a slightly modified version of the one found on the Unity Wiki: http://wiki.unity3d.com/index.php/FootstepHandler.
+
+
+
+
+        Example World
+
+
+        -Collectable.cs / Coin.cs / Heart.cs
+                
+                The collectable script handles all collision with the player and the general movement and visuals of the item.
+                The coin and heart script extends collectable adding sound effects and particle effects when the collectable is collected. Also either adds to the coin count or the player's health depending on the item picked up.
+
+
+        -DisappearingPlatform.cs
+
+
+                This script is used to create platforms that slowly disappear after being touched by the player. The script makes the platform flash for a period of time before disappearing, then will return after a predetermined time.
+
+
+        -Additional Scripts
+                
+                Joystick.cs is a script from the unity forums the developer http://youngentech.com/ created. This is used to display the mobile functionality of the kit.
+                ResetRotation.cs is a script is used on the rigidbody platform to reset the rotation after it has been pushed by the player.
+                TriggerDamage.cs damages the target that enters the trigger by the specified value.
+                CursorControl.cs locks the mouse to the screen when it's clicked and can be unlocked using the ESC key.
+                Counter.cs is a basic counter used in the coin counter UI element.
+                DestroyParticle.cs is placed on FX particles which destroys itself after it's complete.

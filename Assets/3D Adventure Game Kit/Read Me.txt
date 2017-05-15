@@ -1,0 +1,29 @@
+	
+	
+	- 3D Adventure Game Kit
+	- Carl Waddingham
+	- Version 1.0.0
+	- support@cwaddingham.co.uk
+
+
+Thank you for purchasing the 3D Adventure Game Kit!
+
+A brief documentation can be found within the 3D Adventure game kit folder to aid new users to the project.
+
+For any additional questions, suggestions and feedback, feel free to contact: support@cwaddingham.co.uk.
+
+A few instances of code have been used which have been created by other people in most cases I have attempted to contact the developers and retrieved permission to use their work in the asset. If there are any issues feel free to email me and I will promptly work with you to fix the issue.
+
+Working together with me on this project was my friend Ben Crutchley who created the music which is part of the kit. For any business inquiries on music, email: b.crutchley@hotmail.co.uk.
+
+Credit to:
+	Ben Crutchley b.crutchley@hotmail.co.uk - Music
+	Darren O'Neale http://renaissancecoders.com/ - CameraControl Collision Detection
+	Jake Bayer http://wiki.unity3d.com/index.php/FootstepHandler - FootstepHandler.cs
+	Steve Wigley http://youngentech.com/ - Joystick.cs
+
+
+	- Version History -
+
+1.0.0
+- Asset Store Release!
